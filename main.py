@@ -1,11 +1,21 @@
-from typing import Optional
-from fastapi import FastAPI
+from fastapi import FastAPI,Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 import httpx
 
 app=FastAPI()
 
 
-@app.get("/")
+@app.get("/" , response_class=HTMLResponse)
+async def home(request:Request):
+    return templates.TemplateResponse("index.html",{
+        "request":request,
+        "message":"Hi Choose your favorite pokemon"
+    })
+
+
+@app.get("/pokemon/ability")
 async def read_root():
     name_ability=[]
     url_ability=[]
@@ -47,7 +57,6 @@ async def read_root():
     
     return data_url
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return{"item_id": item_id ,"q" : q}
+templates = Jinja2Templates(directory="templates")
