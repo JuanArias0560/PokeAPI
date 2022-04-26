@@ -1,15 +1,38 @@
+{%from 'macros.html' import poll%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poke API</title>
+    <link rel="icon" href="{{url_for('static',path='assets/pikachu.png')}}">
+    <title>Lista Pokemones</title>    
     <link rel="stylesheet" href="{{url_for('static',path='/styles.css')}}">
+    
+    
 </head>
 <body>
     <div class="container">
         <h1>{{message}}</h1>
+        <h2>{{output1}}</h2>
+
+        
+    {% if names=="spearow" %}
+        {{poll(output)}}            
+    {% endif %}  
+    
+    <form action="/home/" method="post">
+    <input type="submit" value="Habilidades" name="spearow">
+    <input type="submit" value="Habilidades" name="fearow">
+    <input type="submit" value="Habilidades" name="ekans">
+    <input type="submit" value="Habilidades" name="arbok">
+    <input type="submit" value="Habilidades" name="pikachu">
+    <input type="submit" value="Habilidades" name="raichu">
+    <input type="submit" value="Habilidades" name="sandshrew">
+    <input type="submit" value="Habilidades" name="sandslash">
+    <input type="submit" value="Habilidades" name="nidorina">
+    </form>
+
     </div>
 </body>
 </html>
