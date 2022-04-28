@@ -1,6 +1,6 @@
 {% macro poll(output)  %}
     {% for ability,value in output.items() %}
-        <h2>{{ability.capitalize()}} : </h2>
-        <h3>{{value.capitalize()}}</h3>
+        <h5>{{ability.capitalize()}} : </h5>
+        <h6>{{value.capitalize()}} </h6>
         {% endfor %}
 {% endmacro %}}

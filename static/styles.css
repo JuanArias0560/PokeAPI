@@ -1,6 +1,5 @@
-.container{
+body{
     font-family: Arial, Helvetica, sans-serif;
-    color: steelblue;
-    text-align: left;
-    width: 100%;
+    background: -webkit-linear-gradient(to left,#DDEFBB,#FFEEEE);
+    background: linear-gradient(to left,#DDEFBB,#FFEEEE );
 }
